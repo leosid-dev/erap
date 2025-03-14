@@ -1,6 +1,6 @@
 # Enhanced RISCV Application Profiler 
 <br>
-Credits: (@mahendraVamshi)[https://github.com/mahendraVamshi] 
+Credits: [@mahendraVamshi](https://github.com/mahendraVamshi)
 <br>
 ## Improvements:
  - Enabled Parallel Processing with multiprocessing python library (For True data parallelism (ie.) No GIL).
