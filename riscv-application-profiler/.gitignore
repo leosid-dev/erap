@@ -1,0 +1,20 @@
+# Pycache files
+*.pyc
+
+# package information
+*.egg-info/
+dist/
+.python-version
+
+# build files
+build/
+
+# riscv opcodes
+rvop_decoder
+
+#files from isac build
+constants.py
+rvopcodesdecoder.py
+
+#cubic larger than 100MB
+tests/cubic

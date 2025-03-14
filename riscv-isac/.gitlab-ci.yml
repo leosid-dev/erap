@@ -1,0 +1,35 @@
+image: python:3.7-alpine
+stages:
+  - pre-merge
+  - deploy
+
+pre-merge:
+  stage: pre-merge
+  script: 
+    - pip install -r riscv_isac/requirements.txt
+    - pip install --editable .
+    - riscv_isac --help
+    - riscv_isac coverage --help
+    - riscv_isac merge --help
+    - cd tests/
+    - pytest test_riscv_isac.py -v
+
+  only:
+    refs:
+      - merge_requests
+
+deploy:
+    stage: deploy
+    script:
+        - pip install twine
+        - python setup.py sdist
+        - python -m twine upload --username $pypiusername --password $pypipassword dist/*
+        - python /scratch/version-extract-rst.py
+    only:
+        refs:
+            - master
+    tags:
+        - incore-group
+    except:
+      - schedules
+
