@@ -1,3 +1,0 @@
-[console_scripts]
-riscv_application_profiler = riscv_application_profiler.main:cli
-
